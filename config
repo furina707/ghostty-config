@@ -1,0 +1,70 @@
+# ========================================================
+#  Ghostty 终端优化配置 (Arch + Niri + AOSP 编译工作流)
+# ========================================================
+
+# --- [1. 历史回滚与日志保护] ---
+# 大幅增加日志行数至 10 万行，确保编译 AOSP 时报错信息不被冲掉
+scrollback-limit = 100000
+
+# --- [2. 剪贴板与鼠标交互] ---
+# 取消划选文字自动复制
+copy-on-select = false
+# 鼠标右键操作：选中文本时右键复制，未选中文本时右键粘贴
+right-click-action = copy-or-paste
+# 复制后自动清除文字选中高亮（确保下一次右键能直接识别为未选中从而执行粘贴）
+selection-clear-on-copy = true
+mouse-hide-while-typing = true
+confirm-close-surface = false
+
+# 键盘快捷键：Ctrl+C 复制 / Ctrl+V 粘贴
+# 使用 performable 前缀：有选中文字时执行复制；无选中文字时保留原生的终端中断信号 (SIGINT)，不影响中断正在运行的命令
+keybind = performable:ctrl+c=copy_to_clipboard:mixed
+keybind = ctrl+v=paste_from_clipboard
+
+# 禁用旧的默认快捷键 (Ctrl+Shift+C / Ctrl+Shift+V)
+keybind = ctrl+shift+c=unbind
+keybind = ctrl+shift+v=unbind
+
+# --- [3. 外观、主题与字体] ---
+# 推荐主题：catppuccin-mocha (柔和护眼)
+theme = Catppuccin Mocha
+font-size = 12
+
+# 窗口与背景微调 (配合 Niri 平铺桌面)
+window-decoration = false
+gtk-titlebar = false
+window-padding-x = 12
+window-padding-y = 12
+# 略带一点磨砂半透明质感 (1.0 为纯黑不透明，0.95 为微透高级感)
+background-opacity = 0.95
+
+# 光标样式 (常驻细条或方块，开启平滑呼吸灯效果)
+cursor-style = block
+cursor-style-blink = true
+
+# --- [4. 快捷键与原生极速分屏] ---
+# 标签页操作
+keybind = ctrl+t=new_tab
+keybind = ctrl+shift+n=new_window
+
+# 原生分屏操作
+keybind = ctrl+shift+d=new_split:right
+keybind = ctrl+shift+s=new_split:down
+keybind = ctrl+shift+w=close_surface
+
+# 分屏间快速切换 (Ctrl + Alt + 方向键)
+keybind = ctrl+alt+left=goto_split:left
+keybind = ctrl+alt+right=goto_split:right
+keybind = ctrl+alt+up=goto_split:top
+keybind = ctrl+alt+down=goto_split:bottom
+
+# 字体缩放
+keybind = ctrl+plus=increase_font_size:1
+keybind = ctrl+minus=decrease_font_size:1
+keybind = ctrl+zero=reset_font_size
+
+# --- [5. 性能与系统集成] ---
+shell-integration = detect
+shell-integration-features = cursor,sudo,title,no-cursor
+app-notifications = false
+gtk-single-instance = true
