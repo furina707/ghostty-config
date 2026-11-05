@@ -9,6 +9,8 @@ scrollback-limit = 100000
 # --- [2. 剪贴板与鼠标交互] ---
 # 取消划选文字自动复制
 copy-on-select = false
+# 关闭不安全粘贴弹窗警告 (直接粘贴含换行或长路径命令，不再弹出确认对话框)
+clipboard-paste-protection = false
 # 鼠标右键操作：选中文本时右键复制，未选中文本时右键粘贴
 right-click-action = copy-or-paste
 # 复制后自动清除文字选中高亮（确保下一次右键能直接识别为未选中从而执行粘贴）

@@ -16,6 +16,7 @@ Personal configuration for [Ghostty](https://ghostty.org/) terminal emulator, op
   - **Right Click**: Smart copy-or-paste (copies selected text to clipboard; pastes clipboard content when no text is selected)
   - Automatically clears highlight after copy for seamless subsequent paste
   - Disabled annoying automatic copy on text selection (`copy-on-select = false`)
+  - Disabled unsafe paste confirmation dialog (`clipboard-paste-protection = false`) for seamless pasting without confirmation prompts
 - **Productivity & Splits**:
   - Scrollback buffer expanded to **100,000 lines** (protects long compilation/debug logs from truncation)
   - `Ctrl + Shift + D`: Split right
